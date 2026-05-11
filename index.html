@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Happy 25th | Round Cake & Magic from Above</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Canvas Confetti -->
+  <title>🎈 25th Birthday | Single-Tier Cake & Balloons</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
   <style>
     * {
@@ -17,13 +15,12 @@
 
     body {
       font-family: 'Poppins', sans-serif;
+      background: linear-gradient(145deg, #fff0f5 0%, #ffe4e9 100%);
       min-height: 100vh;
-      background: linear-gradient(145deg, #fff0ec 0%, #ffe9f0 100%);
       overflow-x: hidden;
       position: relative;
     }
 
-    /* floating background particles */
     body::before {
       content: "";
       position: fixed;
@@ -31,8 +28,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient(circle at 20% 40%, rgba(255,200,180,0.35) 2%, transparent 2.5%),
-                        radial-gradient(circle at 75% 85%, rgba(255,190,150,0.35) 1.8%, transparent 2%);
+      background-image: radial-gradient(circle at 20% 40%, rgba(255,180,180,0.2) 2%, transparent 2.5%),
+                        radial-gradient(circle at 75% 85%, rgba(255,210,180,0.25) 1.8%, transparent 2%);
       background-size: 55px 55px, 70px 70px;
       pointer-events: none;
       z-index: 0;
@@ -51,7 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.4s ease-in-out;
+      transition: opacity 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       padding: 2rem;
     }
 
@@ -59,9 +56,9 @@
       display: none;
     }
 
-    /* intro page */
+    /* INTRO PAGE */
     .intro-page {
-      background: radial-gradient(circle at 10% 30%, rgba(255,245,240,0.85), rgba(255,225,210,0.5));
+      background: radial-gradient(circle at 10% 30%, rgba(255,240,245,0.9), rgba(255,220,230,0.6));
       backdrop-filter: blur(2px);
     }
 
@@ -69,7 +66,7 @@
       text-align: center;
       max-width: 600px;
       width: 100%;
-      background: rgba(255, 250, 245, 0.88);
+      background: rgba(255, 250, 248, 0.9);
       backdrop-filter: blur(6px);
       border-radius: 70px;
       padding: 3rem 2.5rem;
@@ -136,16 +133,13 @@
       background: linear-gradient(120deg, #ff8870, #ff5f85);
     }
 
-    .magic-btn:active {
-      transform: scale(0.96);
-    }
-
-    /* SECOND PAGE - BIRTHDAY LAND */
+    /* BIRTHDAY PAGE */
     .birthday-page {
       background: linear-gradient(125deg, #fff1ec, #ffe4ef);
       position: relative;
       flex-direction: column;
       justify-content: space-between;
+      overflow-y: auto;
     }
 
     .birthday-content {
@@ -156,55 +150,48 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.8rem;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 5;
     }
 
-    /* MOVING HAPPY BIRTHDAY TEXT */
-    .birthday-header {
-      text-align: center;
-      margin: 1rem 0 0.2rem 0;
+    /* MOVING TEXT */
+    .moving-text-container {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(255, 245, 235, 0.6);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 0;
+      border-radius: 60px;
+      margin-top: 0.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    .happy-birthday-text {
+    .horizontal-scroll {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scrollText 14s linear infinite;
       font-family: 'Dancing Script', cursive;
-      font-size: 4rem;
+      font-size: 2.8rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #c43e6a, #ff9966);
+      background: linear-gradient(135deg, #c43e6a, #ff9966, #ff6f91);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      text-shadow: 4px 6px 18px rgba(255, 120, 120, 0.2);
-      letter-spacing: 2px;
-      display: inline-block;
-      animation: bounceSoft 2.2s infinite ease-in-out;
+      letter-spacing: 3px;
     }
 
-    /* Moving animation: gentle sway + slight scale */
-    @keyframes bounceSoft {
-      0% { transform: translateY(0px) rotate(0deg); }
-      45% { transform: translateY(-8px) rotate(1.5deg); text-shadow: 0 10px 20px rgba(255,90,90,0.3); }
-      70% { transform: translateY(3px) rotate(-0.8deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+    @keyframes scrollText {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
     }
 
-    .sub-greeting {
-      font-size: 1.2rem;
-      color: #d46b5e;
-      font-weight: 400;
-      margin-top: -0.3rem;
-      animation: fadeGlow 2s infinite alternate;
-    }
-    @keyframes fadeGlow {
-      0% { opacity: 0.7; text-shadow: 0 0 0px #ffb392; }
-      100% { opacity: 1; text-shadow: 0 0 6px #ffb392; }
-    }
-
-    /* ROUND CAKE SHOWCASE - circular layers */
+    /* SINGLE-TIER CAKE */
     .cake-showcase {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0.5rem 0 0.2rem 0;
+      margin: 0.5rem 0;
       padding: 1rem;
     }
 
@@ -213,281 +200,195 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.2));
     }
 
-    .cake {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: default;
-    }
-
-    /* All tiers become round (circular / oval shape for a 3D round cake) */
-    .tier {
-      border-radius: 50% / 40% 40% 60% 60%;
-      position: relative;
-      transition: all 0.2s;
-      box-shadow: 0 12px 18px -8px rgba(0,0,0,0.2);
-    }
-
-    /* bottom tier - biggest circle */
-    .tier-bottom {
-      width: 280px;
-      height: 90px;
-      background: linear-gradient(145deg, #f9c282, #f7aa5c);
-      border-radius: 50% / 35% 35% 50% 50%;
-      border-bottom: 3px solid #e28b42;
-      position: relative;
-      z-index: 3;
-    }
-
-    /* icing drip effect bottom */
-    .tier-bottom::before {
-      content: "";
+    .plate {
+      width: 400px;
+      height: 100px;
+      background: radial-gradient(ellipse at center, #ffffff 0%, #e9e9e9 100%);
+      border-radius: 50%;
       position: absolute;
-      top: -18px;
-      left: 10%;
-      right: 10%;
-      height: 26px;
-      background: radial-gradient(ellipse at 40% 0%, #fff8e5, #ffefcf);
-      border-radius: 60% 60% 40% 40% / 80% 80% 40% 40%;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      bottom: -40px;
+      z-index: 1;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
-    /* middle tier - round */
-    .tier-middle {
-      width: 235px;
-      height: 80px;
-      background: linear-gradient(145deg, #fed49b, #f7b268);
-      border-radius: 50% / 38% 38% 55% 55%;
-      margin-top: -14px;
-      z-index: 5;
-      box-shadow: 0 10px 14px -6px rgba(0,0,0,0.2);
+    /* Only one tier (the top tier, now the main cake) */
+    .tier-single {
+      position: relative;
+      width: 300px;
+      height: 110px;
+      background: linear-gradient(145deg, #f16a8b, #ff85a2, #f16a8b);
+      border-radius: 50% / 12% 12% 15% 15%;
+      box-shadow: 0 12px 18px -6px rgba(0,0,0,0.2);
+      z-index: 2;
     }
 
-    .tier-middle::before {
+    .tier-single::after {
       content: "";
       position: absolute;
       top: -14px;
-      left: 12%;
-      right: 12%;
-      height: 22px;
-      background: radial-gradient(ellipse at 35% 0%, #fff4e2, #ffe5c2);
-      border-radius: 50% / 70% 70% 30% 30%;
-    }
-
-    /* top tier - smallest round */
-    .tier-top {
-      width: 190px;
-      height: 72px;
-      background: linear-gradient(145deg, #ffe7b3, #fabe7c);
-      border-radius: 50% / 40% 40% 52% 52%;
-      margin-top: -14px;
-      z-index: 7;
-      box-shadow: 0 8px 12px -5px rgba(0,0,0,0.2);
-      position: relative;
-    }
-
-    .tier-top::before {
-      content: "";
-      position: absolute;
-      top: -12px;
-      left: 15%;
-      right: 15%;
-      height: 20px;
-      background: radial-gradient(ellipse at 30% 0%, #fff9ef, #ffefd3);
-      border-radius: 50% / 80% 80% 30% 30%;
-    }
-
-    /* sprinkles inside round tiers */
-    .sprinkles {
-      position: absolute;
-      top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      border-radius: inherit;
-    }
-    .sprinkles span {
-      position: absolute;
-      width: 7px;
-      height: 7px;
-      background: radial-gradient(circle, #ffb347, #ff6b6b);
-      border-radius: 40% 60% 70% 30%;
-      opacity: 0.9;
-      transform: rotate(15deg);
+      height: 28px;
+      background: #fff5f8;
+      border-radius: 50%;
+      border: 2px solid #ffcada;
+      box-sizing: border-box;
     }
 
-    /* Candles container - placed on top tier */
+    .drip {
+      position: absolute;
+      width: 16px;
+      height: 28px;
+      background: #fff5f8;
+      border-radius: 0 0 20px 20px;
+      top: -12px;
+      z-index: 6;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
     .candles-container {
       position: absolute;
-      bottom: 100%;
+      top: -48px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 28px;
-      justify-content: center;
-      align-items: flex-end;
-      margin-bottom: 8px;
+      gap: 22px;
       z-index: 20;
     }
 
     .candle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      filter: drop-shadow(0 4px 5px rgba(0,0,0,0.15));
-    }
-
-    .candle-stick {
-      width: 14px;
-      height: 46px;
-      background: linear-gradient(145deg, #fcf3e0, #f7e3c0);
-      border-radius: 8px 8px 5px 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border: 1px solid #ffe5bf;
-    }
-
-    .wick {
-      width: 3px;
-      height: 8px;
-      background: #6b3e1c;
-      margin-top: -3px;
-      border-radius: 2px;
+      width: 12px;
+      height: 48px;
+      background: linear-gradient(to right, #ffeb3b, #fbc02d);
+      border-radius: 6px;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
     .flame {
-      width: 16px;
-      height: 26px;
-      background: radial-gradient(circle, #ffb347, #ff5e00);
-      border-radius: 50% 50% 40% 40%;
-      filter: blur(0.6px);
-      animation: flicker 0.18s infinite alternate;
-      transform-origin: center bottom;
-      margin-bottom: -3px;
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 22px;
+      background: radial-gradient(circle, #ffeb3b, #ff5722);
+      border-radius: 50% 50% 20% 20%;
+      animation: flicker 0.12s infinite alternate;
     }
 
     @keyframes flicker {
-      0% { transform: scaleY(1) translateY(0px); opacity: 0.9; background: #ffb347; box-shadow: 0 0 2px #ff9f3d;}
-      100% { transform: scaleY(1.12) translateY(-2px); opacity: 1; background: #ff7e2e; box-shadow: 0 0 8px #ffb347; }
+      from { transform: translateX(-50%) scale(1); opacity: 0.9; }
+      to { transform: translateX(-50%) scale(1.1); opacity: 1; box-shadow: 0 0 5px orange; }
     }
 
-    /* 25th Birthday Topper - round badge with "25" */
-    .age-topper {
+    .topper {
       position: absolute;
-      top: -32px;
+      top: -88px;
       left: 50%;
       transform: translateX(-50%);
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.6rem;
+      font-weight: bold;
       background: radial-gradient(circle at 30% 30%, #ffd966, #f1b349);
-      width: 52px;
-      height: 52px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 800;
-      font-size: 1.7rem;
       color: white;
-      text-shadow: 0 2px 3px rgba(0,0,0,0.2);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       z-index: 25;
       border: 2px solid #fff3cf;
-      backdrop-filter: blur(1px);
-      letter-spacing: 1px;
-    }
-    .age-topper::after {
-      content: "✨";
-      position: absolute;
-      font-size: 1.1rem;
-      top: -8px;
-      right: -10px;
-      text-shadow: none;
+      animation: bounce 2s infinite;
     }
 
-    /* cherry on side */
-    .cherry {
-      position: absolute;
-      top: -28px;
-      right: 12px;
-      width: 24px;
-      height: 24px;
-      background: radial-gradient(circle at 35% 30%, #ee5a5a, #b91c1c);
-      border-radius: 50%;
-      z-index: 22;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-      cursor: default;
-    }
-    .cherry::after {
-      content: "🍒";
-      position: absolute;
-      font-size: 20px;
-      top: -6px;
-      left: 2px;
-      opacity: 0.95;
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-8px); }
     }
 
-    /* Best wish area (bottom) with age hint */
+    /* BEST WISH */
     .best-wish-area {
       text-align: center;
-      margin: 1.8rem 0 2rem 0;
-      padding: 1rem 1.5rem;
-      background: rgba(255, 247, 240, 0.7);
+      margin: 1rem 0 1.5rem 0;
+      padding: 1rem 1.8rem;
+      background: rgba(255, 247, 240, 0.8);
+      backdrop-filter: blur(8px);
       border-radius: 70px;
-      backdrop-filter: blur(4px);
       width: 90%;
       max-width: 600px;
     }
 
     .wish-text {
       font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 600;
       color: #b14236;
       letter-spacing: 0.5px;
       font-style: italic;
-      display: inline-block;
     }
 
     .age-highlight {
       display: inline-block;
       background: #ffdbaf;
-      padding: 0 10px;
+      padding: 0 12px;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 800;
       color: #c23b22;
-      margin: 0 4px;
-      font-style: normal;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-family: 'Dancing Script', cursive;
+      margin: 0 5px;
     }
 
     .extra-charm {
       font-size: 0.95rem;
       margin-top: 12px;
       color: #bd7a62;
-      font-weight: 400;
+      font-weight: 500;
     }
 
-    /* back button */
+    .button-container {
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    .celebrate-btn {
+      padding: 12px 35px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      border: none;
+      background: #d81b60;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(216, 27, 96, 0.3);
+      transition: transform 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .celebrate-btn:hover {
+      transform: scale(1.02);
+      background: #c2185b;
+    }
+
     .back-home {
-      margin-top: 0.8rem;
-      margin-bottom: 1.5rem;
+      margin-top: 0.2rem;
+      margin-bottom: 1rem;
       text-align: center;
     }
+
     .back-btn {
-      background: none;
+      background: rgba(255,240,230,0.85);
       border: none;
       font-size: 0.9rem;
       color: #c6755d;
       cursor: pointer;
       font-weight: 500;
-      background: rgba(255,240,230,0.85);
       padding: 6px 22px;
       border-radius: 60px;
       transition: all 0.2s;
@@ -496,127 +397,120 @@
       gap: 5px;
       backdrop-filter: blur(2px);
     }
+
     .back-btn:hover {
       background: #ffddd0;
       color: #b14b36;
       transform: translateX(-3px);
     }
 
-    /* responsiveness */
-    @media (max-width: 650px) {
-      .happy-birthday-text { font-size: 2.8rem; }
-      .tier-bottom { width: 230px; height: 80px; }
-      .tier-middle { width: 190px; height: 70px; }
-      .tier-top { width: 150px; height: 62px; }
-      .candles-container { gap: 18px; }
-      .candle-stick { height: 38px; width: 12px; }
-      .flame { width: 13px; height: 22px; }
-      .age-topper { width: 46px; height: 46px; font-size: 1.4rem; top: -28px; }
-      .wish-text { font-size: 1.2rem; }
-      .cherry { transform: scale(0.85); top: -20px; right: -2px; }
+    /* FALLING BALLOONS */
+    .balloon {
+      position: fixed;
+      bottom: -150px;
+      pointer-events: none;
+      z-index: 100;
+      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.2));
     }
-    @media (max-width: 480px) {
-      .surprise-card { padding: 2rem 1.2rem; }
-      .intro-title { font-size: 2.5rem; }
-      .happy-birthday-text { font-size: 2.2rem; }
-      .cake-showcase { margin: 0; }
+
+    .balloon-body {
+      width: 40px;
+      height: 50px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(0,0,0,0.1));
+      border-radius: 50% 50% 50% 50%;
+      position: relative;
+      transition: transform 0.2s;
+    }
+
+    .balloon-string {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      width: 1.5px;
+      height: 25px;
+      background: #8b5a2b;
+      transform: translateX(-50%);
+    }
+
+    .balloon:hover .balloon-body {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 650px) {
+      .horizontal-scroll { font-size: 2rem; }
+      .tier-single { width: 250px; height: 90px; }
+      .plate { width: 320px; height: 80px; bottom: -35px; }
+      .topper { width: 55px; height: 55px; font-size: 2rem; top: -75px; }
+      .candles-container { gap: 14px; top: -42px; }
+      .candle { height: 40px; width: 10px; }
+      .flame { width: 12px; height: 18px; top: -14px; }
+      .wish-text { font-size: 1.1rem; }
+      .balloon-body { width: 32px; height: 40px; }
     }
   </style>
 </head>
 <body>
 
 <div class="pages-container">
-  <!-- FIRST PAGE (Intro Page) -->
+  <!-- PAGE 1: INTRO -->
   <div id="page1" class="page intro-page">
     <div class="surprise-card">
-      <div class="gift-icon">🎁✨🎂</div>
+      <div class="gift-icon">🎁✨🎈</div>
       <h1 class="intro-title">A Sweet 25th Surprise</h1>
-      <p class="intro-sub">Something beautifully round & magical awaits ...</p>
+      <p class="intro-sub">One beautiful cake, falling balloons & moving wishes!</p>
       <button id="revealBtn" class="magic-btn">
-        <span>🥳</span> Open Celebration <span>🎈</span>
+        <span>🌸</span> Open Your Surprise <span>🎈</span>
       </button>
-      <div style="margin-top: 30px; font-size: 0.85rem; color: #c9876b;">click for happy 25th birthday magic</div>
+      <div style="margin-top: 30px; font-size: 0.85rem; color: #c9876b;">✨ something magical floats down ✨</div>
     </div>
   </div>
 
-  <!-- SECOND PAGE (Birthday Page with MOVING text, ROUND cake & AGE 25 + top-blowing effect) -->
+  <!-- PAGE 2: BIRTHDAY PAGE WITH SINGLE-TIER CAKE -->
   <div id="page2" class="page birthday-page hidden">
     <div class="birthday-content">
-      <!-- HAPPY BIRTHDAY TEXT (top, with movement) -->
-      <div class="birthday-header">
-        <h1 class="happy-birthday-text">🎉 Happy 25th Birthday! 🎉</h1>
-        <div class="sub-greeting">A magnificent quarter-century — shine bright ✨</div>
+      <!-- MOVING TEXT -->
+      <div class="moving-text-container">
+        <div class="horizontal-scroll">
+          <span>🎂 Happy Birthday Mekdi! 🎂 &nbsp;&nbsp;✨🎉🥳✨&nbsp;&nbsp; Happiest Day Ever! ✨&nbsp;&nbsp; 🎂 Happy Birthday Mekdi! 🎂 &nbsp;&nbsp;✨🎉🥳✨&nbsp;&nbsp; Happiest Day Ever! ✨&nbsp;&nbsp; </span>
+        </div>
       </div>
 
-      <!-- ROUND CAKE IN THE MIDDLE with 25 topper -->
+      <!-- SINGLE TIER CAKE (only one layer) -->
       <div class="cake-showcase">
         <div class="cake-master">
-          <div class="cake">
-            <!-- Bottom Tier - round shape -->
-            <div class="tier tier-bottom">
-              <div class="sprinkles">
-                <span style="top: 18px; left: 30px;"></span>
-                <span style="top: 45px; left: 95px;"></span>
-                <span style="top: 55px; left: 160px;"></span>
-                <span style="top: 28px; left: 200px;"></span>
-                <span style="top: 62px; left: 60px;"></span>
-                <span style="top: 35px; left: 220px;"></span>
-              </div>
+          <div class="tier-single">
+            <div class="drip" style="left: 30px;"></div>
+            <div class="drip" style="left: 130px; height: 32px;"></div>
+            <div class="drip" style="left: 240px;"></div>
+            <!-- Candles -->
+            <div class="candles-container">
+              <div class="candle"><div class="flame"></div></div>
+              <div class="candle"><div class="flame"></div></div>
+              <div class="candle"><div class="flame"></div></div>
             </div>
-            <!-- Middle Tier - round -->
-            <div class="tier tier-middle">
-              <div class="sprinkles">
-                <span style="top: 16px; left: 35px;"></span>
-                <span style="top: 40px; left: 110px;"></span>
-                <span style="top: 52px; left: 170px;"></span>
-                <span style="top: 22px; left: 150px;"></span>
-              </div>
-            </div>
-            <!-- Top Tier - round + candles + 25 topper -->
-            <div class="tier tier-top" style="position: relative;">
-              <div class="sprinkles">
-                <span style="top: 18px; left: 28px;"></span>
-                <span style="top: 45px; left: 98px;"></span>
-                <span style="top: 28px; left: 140px;"></span>
-              </div>
-              <!-- Special AGE 25 Topper -->
-              <div class="age-topper">25</div>
-              <!-- Candles -->
-              <div class="candles-container">
-                <div class="candle">
-                  <div class="flame"></div>
-                  <div class="wick"></div>
-                  <div class="candle-stick"></div>
-                </div>
-                <div class="candle">
-                  <div class="flame"></div>
-                  <div class="wick"></div>
-                  <div class="candle-stick"></div>
-                </div>
-                <div class="candle">
-                  <div class="flame"></div>
-                  <div class="wick"></div>
-                  <div class="candle-stick"></div>
-                </div>
-              </div>
-              <!-- Cherry on the side -->
-              <div class="cherry"></div>
-            </div>
+            <!-- 25 Topper -->
+            <div class="topper">25</div>
+          </div>
+          <div class="plate"></div>
+        </div>
+      </div>
+
+      <!-- MAKE A WISH BUTTON -->
+      <div class="button-container">
+        <button class="celebrate-btn" id="wishBtn">🎉 Make a Wish 🎉</button>
+      </div>
+
+      <!-- BEST WISH -->
+      <div class="best-wish-area">
+        <div class="wish-text">
+          🌟 May your 25th year be filled with endless joy, laughter, and dreams come true! 🌟
+          <div class="extra-charm">
+            🕯️ You are <span class="age-highlight">25 & Fabulous!</span> — Shine bright like the candles ✨
           </div>
         </div>
       </div>
 
-      <!-- BEST WISH AT THE BOTTOM + age 25 mention -->
-      <div class="best-wish-area">
-        <div class="wish-text">
-          🌟 "Shine on, <span class="age-highlight">25 & Fabulous!</span> May your heart be as full as this round cake & your joy overflow!" 🌟
-        </div>
-        <div class="extra-charm">
-          🕯️ Make a wish, blow the candles — a sparkling new chapter begins at 25 🎂✨
-        </div>
-      </div>
-
-      <!-- back to intro button -->
+      <!-- BACK BUTTON -->
       <div class="back-home">
         <button id="backToStartBtn" class="back-btn">
           ← Back to intro page
@@ -631,154 +525,177 @@
   const page2 = document.getElementById('page2');
   const revealBtn = document.getElementById('revealBtn');
   const backBtn = document.getElementById('backToStartBtn');
+  const wishBtn = document.getElementById('wishBtn');
 
-  // --------------------------------------------------------------
-  // SPECIAL EFFECT: SOMETHING BLOWS FROM THE TOP
-  // Like a gentle wind carrying confetti, sparkles, and tiny stars
-  // --------------------------------------------------------------
+  // ---------- BALLOON DROPPING ----------
+  let balloonInterval = null;
+  let activeBalloons = [];
+
+  function createBalloon() {
+    const balloon = document.createElement('div');
+    balloon.className = 'balloon';
+    
+    const size = 32 + Math.random() * 28;
+    const balloonBody = document.createElement('div');
+    balloonBody.className = 'balloon-body';
+    balloonBody.style.width = `${size}px`;
+    balloonBody.style.height = `${size * 1.25}px`;
+    
+    const colors = ['#ff4d6d', '#ffb3c6', '#ffbe0b', '#fb5607', '#ff006e', '#8338ec', '#3a86ff', '#06d6a0', '#f4d58c', '#e76f51'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    balloonBody.style.background = `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), ${randomColor})`;
+    balloonBody.style.boxShadow = `0 4px 12px rgba(0,0,0,0.1)`;
+    
+    const string = document.createElement('div');
+    string.className = 'balloon-string';
+    balloonBody.appendChild(string);
+    balloon.appendChild(balloonBody);
+    
+    const leftPos = Math.random() * 90 + 5;
+    balloon.style.left = `${leftPos}%`;
+    balloon.style.bottom = `-${size * 1.2}px`;
+    
+    const duration = 4 + Math.random() * 6;
+    balloon.style.transition = `bottom ${duration}s linear`;
+    
+    document.body.appendChild(balloon);
+    
+    setTimeout(() => {
+      balloon.style.bottom = `${window.innerHeight + size}px`;
+    }, 10);
+    
+    const balloonObj = { element: balloon, duration: duration };
+    activeBalloons.push(balloonObj);
+    
+    setTimeout(() => {
+      if (balloon.parentNode) balloon.remove();
+      activeBalloons = activeBalloons.filter(b => b.element !== balloon);
+    }, duration * 1000 + 200);
+  }
+
+  function startBalloonRain() {
+    if (balloonInterval) clearInterval(balloonInterval);
+    balloonInterval = setInterval(() => {
+      if (!page2.classList.contains('hidden')) {
+        createBalloon();
+        if (Math.random() < 0.3) setTimeout(() => createBalloon(), 150);
+      }
+    }, 1300);
+  }
+
+  function stopBalloonRain() {
+    if (balloonInterval) {
+      clearInterval(balloonInterval);
+      balloonInterval = null;
+    }
+    activeBalloons.forEach(b => { if (b.element && b.element.parentNode) b.element.remove(); });
+    activeBalloons = [];
+  }
+
+  // ---------- CONFETTI EFFECTS ----------
   function topBlowEffect() {
     if (typeof canvasConfetti !== 'function') return;
-    
-    // First wave: soft, wide cascade from top (blowing downward)
     canvasConfetti({
       particleCount: 180,
-      spread: 100,
+      spread: 85,
       origin: { y: 0, x: 0.3 },
-      startVelocity: 12,
-      angle: 70,        // angled downward right
-      colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#e0bbff', '#ffb347'],
+      startVelocity: 14,
+      angle: 75,
+      colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#f6b8d0', '#ffb347'],
       decay: 0.9,
-      ticks: 200
+      ticks: 220
     });
-    
     canvasConfetti({
       particleCount: 180,
-      spread: 100,
+      spread: 85,
       origin: { y: 0, x: 0.7 },
-      startVelocity: 12,
-      angle: 110,       // angled downward left
-      colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#e0bbff', '#ffb347'],
-      decay: 0.9,
-      ticks: 200
-    });
-    
-    // second burst: more concentrated top shower (like wind blowing glitter)
-    canvasConfetti({
-      particleCount: 220,
-      spread: 65,
-      origin: { y: 0, x: 0.5 },
       startVelocity: 14,
-      angle: 90,
-      colors: ['#ff9a7c', '#ff6f91', '#ffe5a3', '#ffb882', '#f9c45a'],
-      decay: 0.92,
-      drift: 0.5
+      angle: 105,
+      colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#f6b8d0', '#ffb347'],
+      decay: 0.9,
+      ticks: 220
     });
-    
-    // extra: tiny stars / sparkles falling from random top positions (blowing effect)
-    for (let i = 0; i < 5; i++) {
+    canvasConfetti({
+      particleCount: 110,
+      spread: 60,
+      origin: { y: 0, x: 0.5 },
+      startVelocity: 12,
+      angle: 90,
+      colors: ['#ff9a7c', '#ff6f91', '#ffe5a3', '#ffb882'],
+      decay: 0.92
+    });
+    for (let i = 0; i < 4; i++) {
       setTimeout(() => {
         canvasConfetti({
-          particleCount: 40,
+          particleCount: 35,
           spread: 45,
           origin: { y: 0, x: Math.random() * 0.8 + 0.1 },
-          startVelocity: 8 + Math.random() * 8,
+          startVelocity: 9 + Math.random() * 8,
           angle: 80 + Math.random() * 20,
           colors: ['#fff3c9', '#ffe0b5', '#ffcce0', '#fdba9a'],
           decay: 0.85,
-          ticks: 150
         });
-      }, i * 80);
+      }, i * 70);
     }
-    
-    // final floating petals (soft top blow)
-    setTimeout(() => {
-      canvasConfetti({
-        particleCount: 100,
-        spread: 90,
-        origin: { y: 0, x: 0.2 },
-        startVelocity: 10,
-        angle: 65,
-        colors: ['#ffbfa6', '#ffb3ba', '#ffdfbf'],
-        shapes: ['circle'],
-        decay: 0.9
-      });
-      canvasConfetti({
-        particleCount: 100,
-        spread: 90,
-        origin: { y: 0, x: 0.8 },
-        startVelocity: 10,
-        angle: 115,
-        colors: ['#ffbfa6', '#ffb3ba', '#ffdfbf'],
-        shapes: ['circle'],
-        decay: 0.9
-      });
-    }, 200);
   }
 
-  // Enhanced birthday confetti (including top blow effect)
-  function triggerFullBirthdayCelebration() {
-    // main celebratory burst from sides & center
+  function fullCelebration() {
     if (typeof canvasConfetti === 'function') {
-      // classic burst
       canvasConfetti({
-        particleCount: 220,
+        particleCount: 200,
         spread: 100,
         origin: { y: 0.6 },
-        startVelocity: 20,
+        startVelocity: 18,
         colors: ['#ffaab9', '#ff8c6b', '#ffe5a3', '#c7e9ff', '#f6b8d0', '#ffd966'],
         decay: 0.9,
-        ticks: 240
       });
       canvasConfetti({
-        particleCount: 100,
-        spread: 60,
+        particleCount: 90,
+        spread: 65,
         origin: { y: 0.4, x: 0.2 },
         startVelocity: 14,
         colors: ['#ffb347', '#ff6f91', '#ffdb8a']
       });
       canvasConfetti({
-        particleCount: 100,
-        spread: 60,
+        particleCount: 90,
+        spread: 65,
         origin: { y: 0.4, x: 0.8 },
         startVelocity: 14,
         colors: ['#ff8ea0', '#f7bc45', '#ffb3ba']
       });
     }
-    // The key "blow from top" effect
     topBlowEffect();
-    // extra afterglow confetti
     setTimeout(() => {
       if (typeof canvasConfetti === 'function') {
         canvasConfetti({
-          particleCount: 60,
-          spread: 85,
-          origin: { y: 0.5, x: 0.5 },
-          startVelocity: 12,
-          angle: 90,
-          colors: ['#f1c38f', '#ffacb7']
+          particleCount: 70,
+          spread: 70,
+          origin: { y: 0.5 },
+          startVelocity: 10,
+          colors: ['#f1c38f', '#ffacb7', '#ffd966']
         });
       }
     }, 400);
   }
 
+  // ---------- PAGE TRANSITION ----------
   function showPage(showPageId) {
     if (showPageId === 'page1') {
       page1.classList.remove('hidden');
       page2.classList.add('hidden');
+      stopBalloonRain();
     } else if (showPageId === 'page2') {
       page1.classList.add('hidden');
       page2.classList.remove('hidden');
-      // trigger the full celebration: includes blowing effect from top, confetti extravaganza
-      triggerFullBirthdayCelebration();
-      // also add a second wave of top blow after 1 second for extra magic
+      startBalloonRain();
+      fullCelebration();
       setTimeout(() => {
         if (typeof canvasConfetti === 'function') {
-          // gentle top breeze again
           canvasConfetti({
-            particleCount: 80,
+            particleCount: 90,
             spread: 70,
             origin: { y: 0, x: 0.5 },
-            startVelocity: 9,
+            startVelocity: 10,
             angle: 90,
             colors: ['#ffddbb', '#ffbfa6', '#ffcbdb'],
             decay: 0.88
@@ -788,44 +705,34 @@
     }
   }
 
-  revealBtn.addEventListener('click', () => {
-    showPage('page2');
-  });
-
-  backBtn.addEventListener('click', () => {
-    showPage('page1');
-  });
-
-  // ensure start on page1
-  window.addEventListener('load', () => {
-    showPage('page1');
-    // mouse interaction: cake topper spark? extra charm
-    const ageBadge = document.querySelector('.age-topper');
-    if (ageBadge) {
-      ageBadge.addEventListener('mouseenter', () => {
-        ageBadge.style.transform = 'translateX(-50%) scale(1.08)';
-        ageBadge.style.transition = '0.2s';
-      });
-      ageBadge.addEventListener('mouseleave', () => {
-        ageBadge.style.transform = 'translateX(-50%) scale(1)';
-      });
+  revealBtn.addEventListener('click', () => showPage('page2'));
+  backBtn.addEventListener('click', () => showPage('page1'));
+  wishBtn.addEventListener('click', () => {
+    fullCelebration();
+    for (let i = 0; i < 6; i++) setTimeout(() => createBalloon(), i * 100);
+    const movingText = document.querySelector('.horizontal-scroll');
+    if (movingText) {
+      movingText.style.animation = 'none';
+      setTimeout(() => movingText.style.animation = 'scrollText 14s linear infinite', 10);
     }
   });
 
-  // Interactive candles tiny spark on click
-  const cakeArea = document.querySelector('.cake-master');
-  if(cakeArea) {
-    cakeArea.addEventListener('click', (e) => {
-      if (typeof canvasConfetti === 'function') {
-        canvasConfetti({
-          particleCount: 35,
-          spread: 45,
-          origin: { y: 0.65 },
-          colors: ['#ffc78e', '#ffafb0']
-        });
-      }
-    });
-  }
+  window.addEventListener('load', () => {
+    showPage('page1');
+    const cakeMaster = document.querySelector('.cake-master');
+    if (cakeMaster) {
+      cakeMaster.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.flame').forEach(flame => flame.style.animationDuration = '0.08s');
+      });
+      cakeMaster.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.flame').forEach(flame => flame.style.animationDuration = '0.12s');
+      });
+    }
+    const topper = document.querySelector('.topper');
+    if (topper) {
+      topper.addEventListener('click', () => canvasConfetti({ particleCount: 30, spread: 45, origin: { y: 0.4 } }));
+    }
+  });
 </script>
 </body>
 </html>
