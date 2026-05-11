@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>🎈 25th Birthday | Single-Tier Cake & Balloons</title>
+  <title>🎈 25th Birthday | Centered Content</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
   <style>
@@ -40,6 +40,9 @@
       z-index: 2;
       width: 100%;
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .page {
@@ -49,27 +52,29 @@
       align-items: center;
       justify-content: center;
       transition: opacity 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      padding: 2rem;
+      padding: 1rem;
     }
 
     .page.hidden {
       display: none;
     }
 
-    /* INTRO PAGE */
+    /* ========== INTRO PAGE - RESPONSIVE ========== */
     .intro-page {
       background: radial-gradient(circle at 10% 30%, rgba(255,240,245,0.9), rgba(255,220,230,0.6));
       backdrop-filter: blur(2px);
+      padding: 1.5rem;
     }
 
     .surprise-card {
       text-align: center;
-      max-width: 600px;
+      max-width: 650px;
       width: 100%;
-      background: rgba(255, 250, 248, 0.9);
+      margin: 0 auto;
+      background: rgba(255, 250, 248, 0.92);
       backdrop-filter: blur(6px);
       border-radius: 70px;
-      padding: 3rem 2.5rem;
+      padding: 3rem 2rem;
       box-shadow: 0 30px 45px -20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
       transition: transform 0.25s ease;
     }
@@ -79,8 +84,8 @@
     }
 
     .gift-icon {
-      font-size: 5rem;
-      margin-bottom: 1rem;
+      font-size: clamp(3rem, 12vw, 5rem);
+      margin-bottom: 0.8rem;
       display: inline-block;
       animation: gentleFloat 2s infinite ease-in-out;
     }
@@ -93,27 +98,29 @@
 
     .intro-title {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.2rem;
+      font-size: clamp(2.2rem, 8vw, 3.5rem);
       font-weight: 700;
       background: linear-gradient(135deg, #e85d75, #f49b6e);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 0.5rem;
+      line-height: 1.2;
     }
 
     .intro-sub {
-      font-size: 1.15rem;
+      font-size: clamp(0.9rem, 4vw, 1.2rem);
       color: #b15e4c;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
       font-weight: 400;
+      padding: 0 0.5rem;
     }
 
     .magic-btn {
       background: linear-gradient(120deg, #ff9a7c, #ff6f91);
       border: none;
-      padding: 1rem 2.8rem;
-      font-size: 1.3rem;
+      padding: 0.8rem 1.8rem;
+      font-size: clamp(1rem, 5vw, 1.3rem);
       font-weight: 600;
       font-family: 'Poppins', sans-serif;
       color: white;
@@ -124,7 +131,19 @@
       letter-spacing: 1px;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .magic-btn {
+        white-space: normal;
+        padding: 0.7rem 1.2rem;
+        gap: 6px;
+      }
+      .surprise-card {
+        padding: 2rem 1.2rem;
+      }
     }
 
     .magic-btn:hover {
@@ -133,24 +152,30 @@
       background: linear-gradient(120deg, #ff8870, #ff5f85);
     }
 
-    /* BIRTHDAY PAGE */
+    /* ========== BIRTHDAY PAGE - VERTICALLY CENTERED ========== */
     .birthday-page {
       background: linear-gradient(125deg, #fff1ec, #ffe4ef);
       position: relative;
-      flex-direction: column;
-      justify-content: space-between;
       overflow-y: auto;
     }
 
+    /* Use flex to center .birthday-content both horizontally and vertically */
+    .birthday-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .birthday-content {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
       position: relative;
       z-index: 5;
     }
@@ -161,9 +186,8 @@
       overflow: hidden;
       background: rgba(255, 245, 235, 0.6);
       backdrop-filter: blur(4px);
-      padding: 0.8rem 0;
+      padding: 0.6rem 0;
       border-radius: 60px;
-      margin-top: 0.5rem;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
@@ -172,13 +196,13 @@
       white-space: nowrap;
       animation: scrollText 14s linear infinite;
       font-family: 'Dancing Script', cursive;
-      font-size: 2.8rem;
+      font-size: clamp(1.6rem, 6vw, 2.8rem);
       font-weight: 700;
       background: linear-gradient(135deg, #c43e6a, #ff9966, #ff6f91);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
     }
 
     @keyframes scrollText {
@@ -191,8 +215,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0.5rem 0;
-      padding: 1rem;
+      margin: 0.2rem 0;
+      padding: 0.5rem;
+      width: 100%;
     }
 
     .cake-master {
@@ -201,24 +226,30 @@
       flex-direction: column;
       align-items: center;
       filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.2));
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
     .plate {
-      width: 400px;
-      height: 100px;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      aspect-ratio: 4 / 1;
       background: radial-gradient(ellipse at center, #ffffff 0%, #e9e9e9 100%);
       border-radius: 50%;
       position: absolute;
-      bottom: -40px;
+      bottom: -35px;
       z-index: 1;
       box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
-    /* Only one tier (the top tier, now the main cake) */
     .tier-single {
       position: relative;
-      width: 300px;
-      height: 110px;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 300 / 110;
       background: linear-gradient(145deg, #f16a8b, #ff85a2, #f16a8b);
       border-radius: 50% / 12% 12% 15% 15%;
       box-shadow: 0 12px 18px -6px rgba(0,0,0,0.2);
@@ -228,10 +259,10 @@
     .tier-single::after {
       content: "";
       position: absolute;
-      top: -14px;
+      top: -12px;
       left: 0;
       width: 100%;
-      height: 28px;
+      height: 26px;
       background: #fff5f8;
       border-radius: 50%;
       border: 2px solid #ffcada;
@@ -240,28 +271,28 @@
 
     .drip {
       position: absolute;
-      width: 16px;
-      height: 28px;
+      width: 14px;
+      height: 26px;
       background: #fff5f8;
       border-radius: 0 0 20px 20px;
-      top: -12px;
+      top: -10px;
       z-index: 6;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     .candles-container {
       position: absolute;
-      top: -48px;
+      top: -42px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 22px;
+      gap: 18px;
       z-index: 20;
     }
 
     .candle {
-      width: 12px;
-      height: 48px;
+      width: 10px;
+      height: 42px;
       background: linear-gradient(to right, #ffeb3b, #fbc02d);
       border-radius: 6px;
       position: relative;
@@ -270,11 +301,11 @@
 
     .flame {
       position: absolute;
-      top: -16px;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%);
-      width: 14px;
-      height: 22px;
+      width: 12px;
+      height: 20px;
       background: radial-gradient(circle, #ffeb3b, #ff5722);
       border-radius: 50% 50% 20% 20%;
       animation: flicker 0.12s infinite alternate;
@@ -287,15 +318,15 @@
 
     .topper {
       position: absolute;
-      top: -88px;
+      top: -78px;
       left: 50%;
       transform: translateX(-50%);
       font-family: 'Dancing Script', cursive;
-      font-size: 2.6rem;
+      font-size: 2rem;
       font-weight: bold;
       background: radial-gradient(circle at 30% 30%, #ffd966, #f1b349);
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -316,18 +347,18 @@
     /* BEST WISH */
     .best-wish-area {
       text-align: center;
-      margin: 1rem 0 1.5rem 0;
-      padding: 1rem 1.8rem;
+      margin: 0.2rem 0;
+      padding: 0.8rem 1.5rem;
       background: rgba(255, 247, 240, 0.8);
       backdrop-filter: blur(8px);
-      border-radius: 70px;
-      width: 90%;
+      border-radius: 60px;
+      width: 95%;
       max-width: 600px;
     }
 
     .wish-text {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: clamp(1rem, 4vw, 1.4rem);
       font-weight: 600;
       color: #b14236;
       letter-spacing: 0.5px;
@@ -337,29 +368,29 @@
     .age-highlight {
       display: inline-block;
       background: #ffdbaf;
-      padding: 0 12px;
+      padding: 0 10px;
       border-radius: 50px;
       font-weight: 800;
       color: #c23b22;
-      font-size: 1.6rem;
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
       font-family: 'Dancing Script', cursive;
-      margin: 0 5px;
+      margin: 0 4px;
     }
 
     .extra-charm {
-      font-size: 0.95rem;
-      margin-top: 12px;
+      font-size: 0.85rem;
+      margin-top: 8px;
       color: #bd7a62;
       font-weight: 500;
     }
 
     .button-container {
-      margin: 0.5rem 0 0.2rem;
+      margin: 0.2rem 0;
     }
 
     .celebrate-btn {
-      padding: 12px 35px;
-      font-size: 1.1rem;
+      padding: 10px 28px;
+      font-size: 1rem;
       font-weight: 600;
       border-radius: 50px;
       border: none;
@@ -378,18 +409,18 @@
 
     .back-home {
       margin-top: 0.2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0;
       text-align: center;
     }
 
     .back-btn {
       background: rgba(255,240,230,0.85);
       border: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #c6755d;
       cursor: pointer;
       font-weight: 500;
-      padding: 6px 22px;
+      padding: 5px 18px;
       border-radius: 60px;
       transition: all 0.2s;
       display: inline-flex;
@@ -432,20 +463,27 @@
       transform: translateX(-50%);
     }
 
-    .balloon:hover .balloon-body {
-      transform: scale(1.05);
+    /* Responsive adjustments for cake & balloons */
+    @media (max-width: 650px) {
+      .birthday-content { gap: 1rem; }
+      .horizontal-scroll { font-size: 1.8rem; }
+      .tier-single { max-width: 250px; }
+      .plate { max-width: 330px; bottom: -30px; }
+      .topper { width: 50px; height: 50px; font-size: 1.8rem; top: -68px; }
+      .candles-container { gap: 12px; top: -38px; }
+      .candle { height: 38px; width: 9px; }
+      .flame { width: 10px; height: 18px; top: -12px; }
+      .balloon-body { width: 32px; height: 40px; }
+      .best-wish-area { padding: 0.8rem 1rem; }
     }
 
-    @media (max-width: 650px) {
-      .horizontal-scroll { font-size: 2rem; }
-      .tier-single { width: 250px; height: 90px; }
-      .plate { width: 320px; height: 80px; bottom: -35px; }
-      .topper { width: 55px; height: 55px; font-size: 2rem; top: -75px; }
-      .candles-container { gap: 14px; top: -42px; }
-      .candle { height: 40px; width: 10px; }
-      .flame { width: 12px; height: 18px; top: -14px; }
-      .wish-text { font-size: 1.1rem; }
-      .balloon-body { width: 32px; height: 40px; }
+    @media (max-width: 480px) {
+      .birthday-content { gap: 0.8rem; padding: 1rem; }
+      .wish-text { font-size: 0.95rem; }
+      .extra-charm { font-size: 0.75rem; }
+      .celebrate-btn { padding: 8px 20px; font-size: 0.9rem; }
+      .topper { width: 45px; height: 45px; font-size: 1.5rem; top: -60px; }
+      .candles-container { gap: 10px; top: -34px; }
     }
   </style>
 </head>
@@ -457,50 +495,44 @@
     <div class="surprise-card">
       <div class="gift-icon">🎁✨🎈</div>
       <h1 class="intro-title">A Sweet 25th Surprise</h1>
-      <p class="intro-sub">One beautiful cake, falling balloons & moving wishes!</p>
+      <p class="intro-sub">One beautiful cake, falling balloons, moving wishes & music!</p>
       <button id="revealBtn" class="magic-btn">
         <span>🌸</span> Open Your Surprise <span>🎈</span>
       </button>
-      <div style="margin-top: 30px; font-size: 0.85rem; color: #c9876b;">✨ something magical floats down ✨</div>
+      <div style="margin-top: 1.5rem; font-size: clamp(0.7rem, 3vw, 0.85rem); color: #c9876b;">✨ something magical floats down ✨</div>
     </div>
   </div>
 
-  <!-- PAGE 2: BIRTHDAY PAGE WITH SINGLE-TIER CAKE -->
+  <!-- PAGE 2: BIRTHDAY PAGE - CONTENT VERTICALLY CENTERED -->
   <div id="page2" class="page birthday-page hidden">
     <div class="birthday-content">
-      <!-- MOVING TEXT -->
       <div class="moving-text-container">
         <div class="horizontal-scroll">
           <span>🎂 Happy Birthday Mekdi! 🎂 &nbsp;&nbsp;✨🎉🥳✨&nbsp;&nbsp; Happiest Day Ever! ✨&nbsp;&nbsp; 🎂 Happy Birthday Mekdi! 🎂 &nbsp;&nbsp;✨🎉🥳✨&nbsp;&nbsp; Happiest Day Ever! ✨&nbsp;&nbsp; </span>
         </div>
       </div>
 
-      <!-- SINGLE TIER CAKE (only one layer) -->
       <div class="cake-showcase">
         <div class="cake-master">
           <div class="tier-single">
-            <div class="drip" style="left: 30px;"></div>
-            <div class="drip" style="left: 130px; height: 32px;"></div>
-            <div class="drip" style="left: 240px;"></div>
-            <!-- Candles -->
+            <div class="drip" style="left: 8%;"></div>
+            <div class="drip" style="left: 45%; height: 28px;"></div>
+            <div class="drip" style="left: 80%;"></div>
             <div class="candles-container">
               <div class="candle"><div class="flame"></div></div>
               <div class="candle"><div class="flame"></div></div>
               <div class="candle"><div class="flame"></div></div>
             </div>
-            <!-- 25 Topper -->
             <div class="topper">25</div>
           </div>
           <div class="plate"></div>
         </div>
       </div>
 
-      <!-- MAKE A WISH BUTTON -->
       <div class="button-container">
         <button class="celebrate-btn" id="wishBtn">🎉 Make a Wish 🎉</button>
       </div>
 
-      <!-- BEST WISH -->
       <div class="best-wish-area">
         <div class="wish-text">
           🌟 May your 25th year be filled with endless joy, laughter, and dreams come true! 🌟
@@ -510,7 +542,6 @@
         </div>
       </div>
 
-      <!-- BACK BUTTON -->
       <div class="back-home">
         <button id="backToStartBtn" class="back-btn">
           ← Back to intro page
@@ -527,46 +558,113 @@
   const backBtn = document.getElementById('backToStartBtn');
   const wishBtn = document.getElementById('wishBtn');
 
-  // ---------- BALLOON DROPPING ----------
+  // ---------- BIRTHDAY MUSIC (Web Audio) ----------
+  let audioContext = null;
+
+  function initAudio() {
+    if (!audioContext && window.AudioContext) {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioContext && audioContext.state === 'suspended') {
+      audioContext.resume();
+    }
+  }
+
+  function playNote(frequency, duration, startTime, volume = 0.25) {
+    if (!audioContext) return;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+    osc.type = 'sine';
+    osc.frequency.value = frequency;
+    gain.gain.value = volume;
+    osc.start(startTime);
+    gain.gain.exponentialRampToValueAtTime(0.00001, startTime + duration);
+    osc.stop(startTime + duration);
+  }
+
+  function playBirthdayJingle() {
+    if (!audioContext) {
+      initAudio();
+    }
+    if (!audioContext) return;
+    if (audioContext.state === 'suspended') {
+      audioContext.resume().then(() => scheduleMelody()).catch(e => console.log("Audio resume error", e));
+    } else {
+      scheduleMelody();
+    }
+  }
+
+  function scheduleMelody() {
+    const now = audioContext.currentTime;
+    const notes = [
+      { freq: 261.63, dur: 0.4, timeOffset: 0.0 },
+      { freq: 261.63, dur: 0.4, timeOffset: 0.4 },
+      { freq: 293.66, dur: 0.5, timeOffset: 0.8 },
+      { freq: 261.63, dur: 0.5, timeOffset: 1.3 },
+      { freq: 349.23, dur: 0.5, timeOffset: 1.8 },
+      { freq: 329.63, dur: 0.8, timeOffset: 2.3 },
+      { freq: 261.63, dur: 0.4, timeOffset: 3.2 },
+      { freq: 261.63, dur: 0.4, timeOffset: 3.6 },
+      { freq: 293.66, dur: 0.5, timeOffset: 4.0 },
+      { freq: 261.63, dur: 0.5, timeOffset: 4.5 },
+      { freq: 392.00, dur: 0.5, timeOffset: 5.0 },
+      { freq: 349.23, dur: 0.8, timeOffset: 5.5 },
+      { freq: 261.63, dur: 0.4, timeOffset: 6.4 },
+      { freq: 261.63, dur: 0.4, timeOffset: 6.8 },
+      { freq: 523.25, dur: 0.5, timeOffset: 7.2 },
+      { freq: 440.00, dur: 0.5, timeOffset: 7.7 },
+      { freq: 349.23, dur: 0.5, timeOffset: 8.2 },
+      { freq: 329.63, dur: 0.5, timeOffset: 8.7 },
+      { freq: 293.66, dur: 0.5, timeOffset: 9.2 },
+      { freq: 466.16, dur: 0.5, timeOffset: 9.8 },
+      { freq: 466.16, dur: 0.4, timeOffset: 10.3 },
+      { freq: 440.00, dur: 0.5, timeOffset: 10.7 },
+      { freq: 349.23, dur: 0.5, timeOffset: 11.2 },
+      { freq: 392.00, dur: 0.8, timeOffset: 11.7 },
+      { freq: 349.23, dur: 1.2, timeOffset: 12.5 }
+    ];
+    notes.forEach(note => {
+      playNote(note.freq, note.dur, now + note.timeOffset, 0.22);
+    });
+    setTimeout(() => {
+      if (audioContext && audioContext.state === 'running') {
+        const arpNow = audioContext.currentTime;
+        playNote(523.25, 0.3, arpNow, 0.18);
+        playNote(659.25, 0.3, arpNow + 0.3, 0.18);
+        playNote(783.99, 0.5, arpNow + 0.6, 0.18);
+      }
+    }, 1300);
+  }
+
+  // ---------- BALLOONS ----------
   let balloonInterval = null;
   let activeBalloons = [];
 
   function createBalloon() {
     const balloon = document.createElement('div');
     balloon.className = 'balloon';
-    
     const size = 32 + Math.random() * 28;
     const balloonBody = document.createElement('div');
     balloonBody.className = 'balloon-body';
     balloonBody.style.width = `${size}px`;
     balloonBody.style.height = `${size * 1.25}px`;
-    
     const colors = ['#ff4d6d', '#ffb3c6', '#ffbe0b', '#fb5607', '#ff006e', '#8338ec', '#3a86ff', '#06d6a0', '#f4d58c', '#e76f51'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     balloonBody.style.background = `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), ${randomColor})`;
-    balloonBody.style.boxShadow = `0 4px 12px rgba(0,0,0,0.1)`;
-    
     const string = document.createElement('div');
     string.className = 'balloon-string';
     balloonBody.appendChild(string);
     balloon.appendChild(balloonBody);
-    
     const leftPos = Math.random() * 90 + 5;
     balloon.style.left = `${leftPos}%`;
     balloon.style.bottom = `-${size * 1.2}px`;
-    
     const duration = 4 + Math.random() * 6;
     balloon.style.transition = `bottom ${duration}s linear`;
-    
     document.body.appendChild(balloon);
-    
-    setTimeout(() => {
-      balloon.style.bottom = `${window.innerHeight + size}px`;
-    }, 10);
-    
-    const balloonObj = { element: balloon, duration: duration };
-    activeBalloons.push(balloonObj);
-    
+    setTimeout(() => { balloon.style.bottom = `${window.innerHeight + size}px`; }, 10);
+    activeBalloons.push({ element: balloon });
     setTimeout(() => {
       if (balloon.parentNode) balloon.remove();
       activeBalloons = activeBalloons.filter(b => b.element !== balloon);
@@ -584,101 +682,30 @@
   }
 
   function stopBalloonRain() {
-    if (balloonInterval) {
-      clearInterval(balloonInterval);
-      balloonInterval = null;
-    }
+    if (balloonInterval) clearInterval(balloonInterval);
     activeBalloons.forEach(b => { if (b.element && b.element.parentNode) b.element.remove(); });
     activeBalloons = [];
   }
 
-  // ---------- CONFETTI EFFECTS ----------
+  // ---------- CONFETTI ----------
   function topBlowEffect() {
     if (typeof canvasConfetti !== 'function') return;
-    canvasConfetti({
-      particleCount: 180,
-      spread: 85,
-      origin: { y: 0, x: 0.3 },
-      startVelocity: 14,
-      angle: 75,
-      colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#f6b8d0', '#ffb347'],
-      decay: 0.9,
-      ticks: 220
-    });
-    canvasConfetti({
-      particleCount: 180,
-      spread: 85,
-      origin: { y: 0, x: 0.7 },
-      startVelocity: 14,
-      angle: 105,
-      colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#f6b8d0', '#ffb347'],
-      decay: 0.9,
-      ticks: 220
-    });
-    canvasConfetti({
-      particleCount: 110,
-      spread: 60,
-      origin: { y: 0, x: 0.5 },
-      startVelocity: 12,
-      angle: 90,
-      colors: ['#ff9a7c', '#ff6f91', '#ffe5a3', '#ffb882'],
-      decay: 0.92
-    });
-    for (let i = 0; i < 4; i++) {
-      setTimeout(() => {
-        canvasConfetti({
-          particleCount: 35,
-          spread: 45,
-          origin: { y: 0, x: Math.random() * 0.8 + 0.1 },
-          startVelocity: 9 + Math.random() * 8,
-          angle: 80 + Math.random() * 20,
-          colors: ['#fff3c9', '#ffe0b5', '#ffcce0', '#fdba9a'],
-          decay: 0.85,
-        });
-      }, i * 70);
-    }
+    canvasConfetti({ particleCount: 180, spread: 85, origin: { y: 0, x: 0.3 }, startVelocity: 14, angle: 75, colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#f6b8d0', '#ffb347'], decay: 0.9 });
+    canvasConfetti({ particleCount: 180, spread: 85, origin: { y: 0, x: 0.7 }, startVelocity: 14, angle: 105, colors: ['#ffb7c5', '#ffd966', '#ff8c6b', '#c7e9ff', '#f6b8d0', '#ffb347'], decay: 0.9 });
+    canvasConfetti({ particleCount: 110, spread: 60, origin: { y: 0, x: 0.5 }, startVelocity: 12, angle: 90, colors: ['#ff9a7c', '#ff6f91', '#ffe5a3', '#ffb882'], decay: 0.92 });
+    for (let i = 0; i < 4; i++) setTimeout(() => canvasConfetti({ particleCount: 35, spread: 45, origin: { y: 0, x: Math.random() * 0.8 + 0.1 }, startVelocity: 9 + Math.random() * 8, angle: 80 + Math.random() * 20, colors: ['#fff3c9', '#ffe0b5', '#ffcce0', '#fdba9a'], decay: 0.85 }), i * 70);
   }
 
   function fullCelebration() {
     if (typeof canvasConfetti === 'function') {
-      canvasConfetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 },
-        startVelocity: 18,
-        colors: ['#ffaab9', '#ff8c6b', '#ffe5a3', '#c7e9ff', '#f6b8d0', '#ffd966'],
-        decay: 0.9,
-      });
-      canvasConfetti({
-        particleCount: 90,
-        spread: 65,
-        origin: { y: 0.4, x: 0.2 },
-        startVelocity: 14,
-        colors: ['#ffb347', '#ff6f91', '#ffdb8a']
-      });
-      canvasConfetti({
-        particleCount: 90,
-        spread: 65,
-        origin: { y: 0.4, x: 0.8 },
-        startVelocity: 14,
-        colors: ['#ff8ea0', '#f7bc45', '#ffb3ba']
-      });
+      canvasConfetti({ particleCount: 200, spread: 100, origin: { y: 0.6 }, startVelocity: 18, colors: ['#ffaab9', '#ff8c6b', '#ffe5a3', '#c7e9ff', '#f6b8d0', '#ffd966'], decay: 0.9 });
+      canvasConfetti({ particleCount: 90, spread: 65, origin: { y: 0.4, x: 0.2 }, startVelocity: 14, colors: ['#ffb347', '#ff6f91', '#ffdb8a'] });
+      canvasConfetti({ particleCount: 90, spread: 65, origin: { y: 0.4, x: 0.8 }, startVelocity: 14, colors: ['#ff8ea0', '#f7bc45', '#ffb3ba'] });
     }
     topBlowEffect();
-    setTimeout(() => {
-      if (typeof canvasConfetti === 'function') {
-        canvasConfetti({
-          particleCount: 70,
-          spread: 70,
-          origin: { y: 0.5 },
-          startVelocity: 10,
-          colors: ['#f1c38f', '#ffacb7', '#ffd966']
-        });
-      }
-    }, 400);
+    setTimeout(() => { if (typeof canvasConfetti === 'function') canvasConfetti({ particleCount: 70, spread: 70, origin: { y: 0.5 }, startVelocity: 10, colors: ['#f1c38f', '#ffacb7', '#ffd966'] }); }, 400);
   }
 
-  // ---------- PAGE TRANSITION ----------
   function showPage(showPageId) {
     if (showPageId === 'page1') {
       page1.classList.remove('hidden');
@@ -689,49 +716,30 @@
       page2.classList.remove('hidden');
       startBalloonRain();
       fullCelebration();
-      setTimeout(() => {
-        if (typeof canvasConfetti === 'function') {
-          canvasConfetti({
-            particleCount: 90,
-            spread: 70,
-            origin: { y: 0, x: 0.5 },
-            startVelocity: 10,
-            angle: 90,
-            colors: ['#ffddbb', '#ffbfa6', '#ffcbdb'],
-            decay: 0.88
-          });
-        }
-      }, 1000);
+      setTimeout(() => { if (typeof canvasConfetti === 'function') canvasConfetti({ particleCount: 90, spread: 70, origin: { y: 0, x: 0.5 }, startVelocity: 10, angle: 90, colors: ['#ffddbb', '#ffbfa6', '#ffcbdb'], decay: 0.88 }); }, 1000);
     }
   }
 
   revealBtn.addEventListener('click', () => showPage('page2'));
   backBtn.addEventListener('click', () => showPage('page1'));
   wishBtn.addEventListener('click', () => {
+    initAudio();
+    playBirthdayJingle();
     fullCelebration();
     for (let i = 0; i < 6; i++) setTimeout(() => createBalloon(), i * 100);
     const movingText = document.querySelector('.horizontal-scroll');
-    if (movingText) {
-      movingText.style.animation = 'none';
-      setTimeout(() => movingText.style.animation = 'scrollText 14s linear infinite', 10);
-    }
+    if (movingText) { movingText.style.animation = 'none'; setTimeout(() => movingText.style.animation = 'scrollText 14s linear infinite', 10); }
   });
 
   window.addEventListener('load', () => {
     showPage('page1');
     const cakeMaster = document.querySelector('.cake-master');
     if (cakeMaster) {
-      cakeMaster.addEventListener('mouseenter', () => {
-        document.querySelectorAll('.flame').forEach(flame => flame.style.animationDuration = '0.08s');
-      });
-      cakeMaster.addEventListener('mouseleave', () => {
-        document.querySelectorAll('.flame').forEach(flame => flame.style.animationDuration = '0.12s');
-      });
+      cakeMaster.addEventListener('mouseenter', () => document.querySelectorAll('.flame').forEach(f => f.style.animationDuration = '0.08s'));
+      cakeMaster.addEventListener('mouseleave', () => document.querySelectorAll('.flame').forEach(f => f.style.animationDuration = '0.12s'));
     }
     const topper = document.querySelector('.topper');
-    if (topper) {
-      topper.addEventListener('click', () => canvasConfetti({ particleCount: 30, spread: 45, origin: { y: 0.4 } }));
-    }
+    if (topper) topper.addEventListener('click', () => canvasConfetti({ particleCount: 30, spread: 45, origin: { y: 0.4 } }));
   });
 </script>
 </body>
